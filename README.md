@@ -1,6 +1,6 @@
-# ob-fiver-project-g1
+# ob-fiverr-project-g1
 
-_Projecto web que simula el funcionamiento de Fiver_
+_Projecto web que simula el funcionamiento de Fiverr_
 
 ## Comenzando 🚀
 
@@ -39,7 +39,6 @@ _TODO_
 * [React.js](https://reactjs.org) - Librería usada
 * [NPM](https://www.npmjs.com/) - Manejador de dependencias de nodejs
 * [Node.js](https://nodejs.org/en/) - Entorno de ejecución de javascript fuera de navegador
-* [Spring Boot](https://spring.io/projects/spring-boot) - API
 
 ## Autores ✒️
 
