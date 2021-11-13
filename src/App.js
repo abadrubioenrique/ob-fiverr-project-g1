@@ -1,5 +1,5 @@
 import './App.css';
-import SliderComponent from './components/SliderComponent';
+import SliderComponent from './components/Slider/SliderComponent';
 
 function App() {
   return (
