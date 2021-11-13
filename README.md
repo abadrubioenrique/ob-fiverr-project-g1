@@ -20,7 +20,7 @@ Node.js - Version: 16.13.0 LTS - https://nodejs.org/
 _Clonar el repositorio_
 
 ```
-git clone git@github.com:abadrubioenrique/ob-fiver-project-g1.git
+git clone git@github.com:abadrubioenrique/ob-fiverr-project-g1.git
 ```
 
 _Instalar dependencias por npm_
