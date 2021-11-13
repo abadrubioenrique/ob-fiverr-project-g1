@@ -12,7 +12,7 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 ### Pre-requisitos 📋
 
 ```
-Node.js - Version: 16.13.0 LTS https://nodejs.org
+Node.js - Version: 16.13.0 LTS
 ```
 
 ### Instalación 🔧
