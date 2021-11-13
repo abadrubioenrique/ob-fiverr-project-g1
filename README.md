@@ -41,18 +41,10 @@ _Agrega notas adicionales sobre como hacer deploy_
 
 ## Construido con 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
 * [React.js](https://reactjs.org) - Librería usada
 * [Node.js](https://nodejs.org) - Manejador de dependencias
 * [Spring Boot](https://spring.io/projects/spring-boot) - API
 
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
 ## Autores ✒️
-
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
 * **Enrique Abad Rubio** - *Trabajo Inicial* - [abadrubioenrique](https://github.com/abadrubioenrique)
