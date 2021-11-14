@@ -1,5 +1,5 @@
 import './App.css';
-import SliderComponent from './components/Slider/SliderComponent';
+import CardComponent from './components/Card/CardComponent';
 
 function App() {
   return (
@@ -7,14 +7,14 @@ function App() {
       <header className="App-header">
         <h1>App Works</h1>
           <div className="body">
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
-          <SliderComponent></SliderComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
+          <CardComponent></CardComponent>
 
           </div>
       </header>

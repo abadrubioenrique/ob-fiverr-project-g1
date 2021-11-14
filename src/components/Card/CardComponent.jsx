@@ -1,28 +1,24 @@
-
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-
 // Import Swiper styles
 import 'swiper/swiper.min.css'; 
 import 'swiper/modules/zoom/zoom.min.css'; 
 import 'swiper/modules/navigation/navigation.min.css'; 
 import 'swiper/modules/pagination/pagination.min.css'; 
-
+// Styles
 import "../../styles.css";
-
-import "./slidercomponent.css";
-
+import "./Card.css";
 // import Swiper core and required modules
 import SwiperCore, {
   Zoom,Navigation,Pagination
 } from 'swiper';
 
-// install Swiper modules
+// Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
 //TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida
-export default function App() {
+export default function Card() {
    
   
   return (
