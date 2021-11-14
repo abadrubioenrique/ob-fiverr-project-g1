@@ -28,7 +28,7 @@ const Card=(props)=> {
 
   <div className="card rounded">
     <Swiper 
-        style={{'--swiper-navigation-color': '#cecece','--swiper-pagination-color': '#cecece'}}
+        style={{'--swiper-navigation-color': '#b0b0b0','--swiper-pagination-color': '#fff'}}
         zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
       <SwiperSlide>
         <div className="card-img-top">
@@ -68,7 +68,7 @@ const Card=(props)=> {
           </div>
           <div className="linea"></div>
           <div className="stars">
-          <p>{rating} stars</p>
+          {/* <p>{rating} stars</p> */}
           {/* TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida */}
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-fill"></i>
