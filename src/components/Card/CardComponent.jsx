@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 // Import Swiper styles
@@ -17,8 +18,8 @@ import SwiperCore, {
 // Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
-//TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida
-export default function Card() {
+
+ const Card=(props)=> {
    
   
   return (
@@ -59,28 +60,34 @@ export default function Card() {
   </Swiper>
 
     <div className="card-body">
-      <h5 className="card-title text-start">I will do UI UX design for your website</h5>
-        
+      <h5 className="card-title text-start">{ props.title }</h5>
           <div className="user">
             <i className="bi bi-person-circle"/>
-              <span>Username</span>
+              <span>{ props.username}</span>
           </div>
           <div className="linea"></div>
           <div className="stars">
+          <p>{props.rating}</p>
+          {/* TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida */}
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-half"></i>
             <i className="star bi bi-star"></i>
-            <span>29.99 €</span>
+            <span>{ props.price } €</span>
           </div>
-         
-    
     </div>
     </div>
     
-  
-    
-    
+
   )
 }
+Card.propTypes = {
+  title: PropTypes.string,
+  username: PropTypes.string,
+  price: PropTypes.number,
+  rating: PropTypes.number
+
+};
+
+export default Card;
