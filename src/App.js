@@ -1,5 +1,6 @@
 import './App.css';
 import CardComponent from './components/Card/CardComponent';
+import CardFormik from './components/Card/CardFormik';
 
 function App() {
   return (

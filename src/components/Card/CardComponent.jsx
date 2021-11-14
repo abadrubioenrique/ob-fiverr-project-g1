@@ -73,7 +73,7 @@ const Card=(props)=> {
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star-fill"></i>
-            <i className="star bi bi-star-half"></i>
+            <i className="star bi bi-star"></i>
             <i className="star bi bi-star"></i>
             <span>{ props.price } €</span>
 
