@@ -22,13 +22,13 @@ function App() {
           <CardComponent 
               title="I will provide SEO plan to rank page 1 in 2021"
               username="Paco"
-              price={20.99}
+              price={21.99}
               rating={3}
           ></CardComponent>  
-                    <CardComponent 
+          <CardComponent 
               title="I will fix wordpress SEO issues to help it rank better"
               username="Marina_seo"
-              price={20.99}
+              price={5.99}
               rating={5}
           ></CardComponent> 
 
