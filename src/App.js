@@ -1,6 +1,6 @@
 import './App.css';
 import CardComponent from './components/Card/CardComponent';
-import CardFormik from './components/Card/CardFormik';
+import CardFormik from './components/Formularios/CardFormik';
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
               price={5.99}
               rating={5}
           ></CardComponent> 
-
+          <CardFormik></CardFormik>
           </div>
       </header>
     </div>

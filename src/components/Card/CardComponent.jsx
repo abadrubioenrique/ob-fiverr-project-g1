@@ -26,9 +26,9 @@ const Card=(props)=> {
   return (
     
 
-  <div className="card rounded">
+  <div className="card shadow p-1 mb-5 bg-white rounded ">
     <Swiper 
-        style={{'--swiper-navigation-color': '#b0b0b0','--swiper-pagination-color': '#fff'}}
+        style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
         zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
       <SwiperSlide>
         <div className="card-img-top">
