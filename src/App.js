@@ -1,5 +1,6 @@
 import './App.css';
 import CardComponent from './components/Card/CardComponent';
+import CardListComponent from './components/container/card_list';
 import CardFormik from './components/Formularios/CardFormik';
 
 function App() {
@@ -7,8 +8,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>App Works</h1>
-          <div className="body">
-          <CardComponent 
+
+          {/* <CardComponent 
               title="I will 150 SEO backlinks white hat manual link aaaa"
               username="Manolo123"
               price={20.99}
@@ -32,8 +33,9 @@ function App() {
               price={5.99}
               rating={5}
           ></CardComponent> 
-          <CardFormik></CardFormik>
-          </div>
+          <CardFormik></CardFormik> */}
+          <CardListComponent></CardListComponent>
+
       </header>
     </div>
   );

@@ -15,43 +15,45 @@ const CardFormik = () => {
             rating:'',
 
         }}
-        validate={(valores) => {
+        validate={(values) => {
             let errors = {};
 
             // Validation title
-            if(!valores.title){
+            if(!values.title){
                 errors.title = 'Por favor ingresa un title'
-            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.title)){
-                errors.title = 'El title solo puede contener letras y espacios'
+            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,50}$/.test(values.title)){
+                errors.title = 'El title solo puede contener letras y espacios, y no debe superar los 50 caracteres'
             }
             // Validation username
-            if(!valores.username){
+            if(!values.username){
                 errors.username = 'Por favor ingresa un username'
-            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.username)){
-                errors.username = 'El username solo puede contener letras y espacios'
+            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,16}$/.test(values.username)){
+                errors.username = 'El username solo puede contener letras y espacios y no debe superar los 16 caracteres'
             }
             // Validation category
-            if(!valores.category){
+            if(!values.category){
                 errors.category = 'Por favor ingrese una categoría'
             }
             // Validation description
-            if(!valores.description){
+            if(!values.description){
                 errors.description = 'Por favor ingrese una descripción'
             }
             // Validation price
-            if(!valores.price){
+            if(!values.price){
                 errors.price = 'Por favor ingrese un precio'
             }
             // Validation rating
-            if(!valores.rating){
+            if(!values.rating){
                 errors.rating = 'Por favor ingrese una valoración'
             }
 
             return errors;
         }}
-        onSubmit={(valores, {resetForm}) => {
+        onSubmit={(values, {resetForm}) => {
             resetForm();
             console.log('Formulario enviado');
+            console.log(values);
+            
             setFormulario(true);
             setTimeout(() => setFormulario(false), 5000);
         }}
@@ -99,7 +101,7 @@ const CardFormik = () => {
 
                 <div>
                 <label htmlFor="description">Description</label>
-                    <Field name="description" as="textarea" placeholder="Card Description" />
+                    <Field name="description" as="textarea" maxLength={255} placeholder="Card Description" />
                     <ErrorMessage name="description" component={() => (<div className="error">{errors.description}</div>)} />
                 </div>
                 <div>

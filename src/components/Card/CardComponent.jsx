@@ -18,14 +18,12 @@ import SwiperCore, {
 // Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
-const Card=(props)=> {
+const CardComponent=(props)=> {
    
   const rating=props.rating;
 
-  
   return (
     
-
   <div className="card shadow p-1 mb-5 bg-white rounded ">
     <Swiper 
         style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
@@ -85,7 +83,7 @@ const Card=(props)=> {
 
   )
 }
-Card.propTypes = {
+CardComponent.propTypes = {
   title: PropTypes.string,
   username: PropTypes.string,
   price: PropTypes.number,
@@ -93,4 +91,4 @@ Card.propTypes = {
 
 };
 
-export default Card;
+export default CardComponent;
