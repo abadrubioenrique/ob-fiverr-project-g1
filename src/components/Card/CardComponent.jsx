@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+//Importamos el modelo de card
+import { Card } from '../models/card.class';
 // Import Swiper styles
 import 'swiper/swiper.min.css'; 
 import 'swiper/modules/zoom/zoom.min.css'; 
@@ -18,9 +20,16 @@ import SwiperCore, {
 // Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
-const CardComponent=(props)=> {
+const CardComponent=({card})=> {
+  useEffect(() => {
+    console.log('Created Card')
+    console.log(`Card: ${card.title}`)
+    return () => {
+        console.log(`Card: ${card.title} is going to unmount`);
+    }
+}, [card]);
    
-  const rating=props.rating;
+  const rating=card.rating;
 
   return (
     
@@ -59,10 +68,10 @@ const CardComponent=(props)=> {
     </Swiper>
 
     <div className="card-body">
-      <h5 className="card-title text-start">{ props.title }</h5>
+      <h5 className="card-title text-start">{card.title}</h5>
           <div className="user">
             <i className="bi bi-person-circle"/>
-              <span>{ props.username}</span>
+              <span>{card.username}</span>
           </div>
           <div className="linea"></div>
           <div className="stars">
@@ -73,7 +82,7 @@ const CardComponent=(props)=> {
             <i className="star bi bi-star-fill"></i>
             <i className="star bi bi-star"></i>
             <i className="star bi bi-star"></i>
-            <span>{ props.price } €</span>
+            <span>{card.price} €</span>
 
           </div>
 
@@ -84,10 +93,7 @@ const CardComponent=(props)=> {
   )
 }
 CardComponent.propTypes = {
-  title: PropTypes.string,
-  username: PropTypes.string,
-  price: PropTypes.number,
-  rating: PropTypes.number
+  card :PropTypes.instanceOf(Card).isRequired,
 
 };
 
