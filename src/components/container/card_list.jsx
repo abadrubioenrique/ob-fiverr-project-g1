@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 //Importamos el modelo de card
-import { Card } from '../models/card.class';
+import { Card } from '../../models/card.class';
 //Importamos el css de las card 
 import '../Card/Card.css';
 //Importamos el formulario de la card

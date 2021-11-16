@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Card } from '../models/card.class';
+import { Card } from '../../models/card.class';
 import "./cardFormik.css";
 const CardFormik = () => {
 	const [formulario, setFormulario] = useState(false);

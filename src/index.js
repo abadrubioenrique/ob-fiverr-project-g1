@@ -8,12 +8,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import App from './App';
+import AppAxios from './AppAxios';
 import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+{/*     <App /> */}
+<AppAxios></AppAxios>
   </React.StrictMode>,
   document.getElementById('root')
 );
