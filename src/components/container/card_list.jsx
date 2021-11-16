@@ -12,10 +12,11 @@ const CardListComponent = () => {
     const defaultCard1 = new Card('Example1','username1','Description1',10.99,5);
     const defaultCard2 = new Card('Example2','username2','Description2',8.99,4);
     const defaultCard3 = new Card('Example3','username3','Description3',20.99,3);
-
+    const defaultCard4 = new Card('Example4','username4','Description4',20.99,3);
+    const defaultCard5 = new Card('Example5','username5','Description5',20.99,3);
 
     // Estado del componente
-    const [cards, setCards] = useState([defaultCard1, defaultCard2, defaultCard3]);
+    const [cards, setCards] = useState([defaultCard1, defaultCard2, defaultCard3,defaultCard4,defaultCard5]);
     const [loading, setLoading] = useState(true);
 
     // Control del ciclo de vida del componente
@@ -23,7 +24,7 @@ const CardListComponent = () => {
         console.log('Card State has been modified');
         setTimeout(()=>{
             setLoading(false);
-        },2000);
+        },1000);
         return () => {
             console.log('CardList component is going to unmount...');
         }
