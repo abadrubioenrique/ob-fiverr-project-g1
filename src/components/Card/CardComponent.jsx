@@ -28,26 +28,20 @@ const CardComponent=({card})=> {
         console.log(`Card: ${card.title} is going to unmount`);
     }
 }, [card]);
-  card.numImg= ['https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/157750073/original/2ebbcdec8dfa206d22464f93e50d5429f5631523.png',
-  'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/157750073/original/7fad27143dca2503db2efcc620d299ae2f76d0cd.png'];
+
   const rating=card.rating;
-  const numImg=card.imgUrl.length;
+  const numImg=card.pictures.length;
   
-
-
-
-
-
   return (
     
   <div className="card shadow p-1 mb-5 bg-white rounded ">
+  {/* Añadimos un operador ternario para barajar los casos en los que no haya ninguna imagen a */}
    {numImg!==0 ?
       <Swiper 
           style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
           zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
           {/* Recorremos el array de las url de las imagenes */}
-        
-          {card.numImg.map((value,index)=>{
+          {card.pictures.map((value,index)=>{
             return(
               <SwiperSlide>
                 <div className="card-img-top">
@@ -62,7 +56,7 @@ const CardComponent=({card})=> {
       : 
       (
         <div className="no-img">
-          <h1>No hay imagenes disponibles</h1>
+          <h1>No hay imágenes disponibles</h1>
         </div>
       )
     }

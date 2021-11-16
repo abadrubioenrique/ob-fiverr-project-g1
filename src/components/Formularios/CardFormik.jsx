@@ -78,7 +78,7 @@ const CardFormik = () => {
             //addCard();
             console.log('Formulario enviado');
             alert(JSON.stringify(values, null, 2));
-            
+            console.log(values);
             setFormulario(true);
             setTimeout(() => setFormulario(false), 5000);
         }}

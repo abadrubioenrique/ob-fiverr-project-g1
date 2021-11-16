@@ -43,13 +43,13 @@ const CardListComponent = () => {
         return (
         <div className="body">
             { cards.map((card, index) => {
-                    return (
-                        <CardComponent 
-                            key={index} 
-                            card={card}>
-                        </CardComponent>
-                        )
-                    }
+                return (
+                    <CardComponent 
+                        key={index} 
+                        card={card}>
+                    </CardComponent>
+                    )
+                }
             )}   
         </div>
         )
