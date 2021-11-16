@@ -1,8 +1,31 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Card } from '../models/card.class';
 import "./cardFormik.css";
 const CardFormik = () => {
 	const [formulario, setFormulario] = useState(false);
+/*
+    const titleRef = useRef('');
+    const usernameRef = useRef('');
+    const categoryRef = useRef('');
+    const descriptionRef = useRef('');
+    const priceRef = useRef('');
+    const ratingRef = useRef('');
+
+    function addCard(e){
+        e.preventDefault();
+        const newCard = new Card(
+            titleRef.current.value,
+            usernameRef.current.value,
+            categoryRef.current.value,
+            descriptionRef.current.value,
+            priceRef.current,
+            ratingRef.current.value
+        );
+        add(newCard);
+    }
+*/
 	return (
 		
     <Formik
@@ -12,7 +35,7 @@ const CardFormik = () => {
             category:'',
             description:'',
             price:'',
-            rating:'',
+            rating: '',
 
         }}
         validate={(values) => {
@@ -49,10 +72,12 @@ const CardFormik = () => {
 
             return errors;
         }}
-        onSubmit={(values, {resetForm}) => {
+        //onSubmit={(values, {resetForm},{addCard}) => {
+            onSubmit={(values, {resetForm}) => {
             resetForm();
+            //addCard();
             console.log('Formulario enviado');
-            console.log(values);
+            alert(JSON.stringify(values, null, 2));
             
             setFormulario(true);
             setTimeout(() => setFormulario(false), 5000);
@@ -62,7 +87,7 @@ const CardFormik = () => {
             <Form className="formulario shadow">
                 <div>
                     <label htmlFor="title">Title</label>
-                    <Field
+                    <Field                       
                         type="text" 
                         id="title" 
                         name="title" 
@@ -133,5 +158,9 @@ const CardFormik = () => {
 
 	);
 }
+/*
+CardFormik.protoTypes = {
+    add: PropTypes.func.isRequired
+}*/
  
 export default CardFormik;
