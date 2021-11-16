@@ -36,7 +36,7 @@ const CardComponent=({card})=> {
     
   <div className="card shadow p-1 mb-5 bg-white rounded ">
   {/* Añadimos un operador ternario para barajar los casos en los que no haya ninguna imagen a */}
-   {numImg!==0 ?
+  {numImg!==0 ?
       <Swiper 
           style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
           zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
@@ -46,7 +46,7 @@ const CardComponent=({card})=> {
               <SwiperSlide>
                 <div className="card-img-top">
                   <img key={index} src= {value}
-                    alt="img-2"
+                  alt={"Imagen " + index}
                   />
                 </div>
             </SwiperSlide>
@@ -77,13 +77,9 @@ const CardComponent=({card})=> {
             <i className="star bi bi-star"></i>
             <i className="star bi bi-star"></i>
             <span>{card.price} €</span>
-
-          </div>
-
-            
+          </div>  
     </div>
     </div>
-
   )
 }
 CardComponent.propTypes = {

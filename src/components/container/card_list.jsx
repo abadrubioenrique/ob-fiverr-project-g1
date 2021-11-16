@@ -39,7 +39,7 @@ const CardListComponent = () => {
         }
     }, [cards])
 
-    const Table = () =>{
+    const Cards = () =>{
         return (
         <div className="body">
             { cards.map((card, index) => {
@@ -57,7 +57,7 @@ const CardListComponent = () => {
 
     let cardsTable;
     if(cards.length>0){
-        cardsTable = <Table></Table>
+        cardsTable = <Cards></Cards>
     }else{
         cardsTable = (
         <div>
