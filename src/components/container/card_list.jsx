@@ -22,8 +22,7 @@ const CardListComponent = () => {
     ['https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/157750073/original/2ebbcdec8dfa206d22464f93e50d5429f5631523.png',
     'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/157750073/original/7fad27143dca2503db2efcc620d299ae2f76d0cd.png']);
     const defaultCard5 = new Card('Example','username','Description5',20.99,3,
-    ['https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/157750073/original/2ebbcdec8dfa206d22464f93e50d5429f5631523.png',
-    'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/157750073/original/7fad27143dca2503db2efcc620d299ae2f76d0cd.png']);
+    []);
 
     // Estado del componente
     const [cards, setCards] = useState([defaultCard1, defaultCard2, defaultCard3,defaultCard4,defaultCard5]);

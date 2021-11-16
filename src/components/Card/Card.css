@@ -4,7 +4,7 @@
 }
 .card{
     margin: 10px;
-    width: 300px;
+    width: 340px;
     height: 400px;
     background-color: white;
     color: black;
@@ -46,4 +46,12 @@
     max-width: 100%;
     padding: 0;
     margin: 10px auto 10px auto;
+}
+.no-img{
+    margin: 10px;
+    width: 300px;
+    height: 400px;
+}
+.no-img h1{
+    text-align: center;
 }

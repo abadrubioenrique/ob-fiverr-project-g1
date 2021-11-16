@@ -41,27 +41,34 @@ const CardComponent=({card})=> {
   return (
     
   <div className="card shadow p-1 mb-5 bg-white rounded ">
-  
-    <Swiper 
-        style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
-        zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
-        {/* Recorremos el array de las url de las imagenes */}
-        {card.numImg.map((value,index)=>{
-          return(
-            <SwiperSlide>
-              <div className="card-img-top">
-                <img key={index} src= {value}
-                  alt="img-2"
-                />
-              </div>
-          </SwiperSlide>
-      )  
-        })}
-    </Swiper>
-
+   {numImg!==0 ?
+      <Swiper 
+          style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
+          zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
+          {/* Recorremos el array de las url de las imagenes */}
+        
+          {card.numImg.map((value,index)=>{
+            return(
+              <SwiperSlide>
+                <div className="card-img-top">
+                  <img key={index} src= {value}
+                    alt="img-2"
+                  />
+                </div>
+            </SwiperSlide>
+        )  
+          })}
+      </Swiper>
+      : 
+      (
+        <div className="no-img">
+          <h1>No hay imagenes disponibles</h1>
+        </div>
+      )
+    }
     <div className="card-body">
       <h5 className="card-title text-start">{card.title}</h5>
-      {numImg!=0 ? 'hay imagenes': 'No hay imagenes'}
+      
           <div className="user">
             <i className="bi bi-person-circle"/>
               <span>{card.username}</span>
