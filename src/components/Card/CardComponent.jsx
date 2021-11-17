@@ -37,22 +37,29 @@ const CardComponent=({card})=> {
   <div className="card shadow p-1 mb-5 bg-white rounded ">
   {/* Añadimos un operador ternario para barajar los casos en los que no haya ninguna imagen a */}
   {numImg!==0 ?
+    <>
+
       <Swiper 
           style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
           zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
+
           {/* Recorremos el array de las url de las imagenes */}
-          {card.pictures.map((value,index)=>{
+          {card.pictures.map((i,index)=>{
             return(
-              <SwiperSlide>
+              
+              <SwiperSlide key={index}>
                 <div className="card-img-top">
-                  <img key={index} src= {value}
-                  alt={"Imagen " + index}
+                <img  src= {i.url}
+                          alt={"Imagen " + i.id}
                   />
+                 
                 </div>
             </SwiperSlide>
+            
         )  
           })}
       </Swiper>
+      </>
       : 
       (
         <div className="no-img">
@@ -82,9 +89,5 @@ const CardComponent=({card})=> {
     </div>
   )
 }
-CardComponent.propTypes = {
-  card :PropTypes.instanceOf(Card).isRequired,
-
-};
 
 export default CardComponent;

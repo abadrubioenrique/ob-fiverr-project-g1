@@ -1,14 +1,38 @@
-import axios from 'axios';
 import React , {useState, useEffect} from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 import { getAllCards, getCardByID,} from '../../services/axiosCRUDService';
 import './axios.css';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
+//Importamos el modelo de card
+import { Card } from '../../models/card.class';
+// Import Swiper styles
+import 'swiper/swiper.min.css'; 
+import 'swiper/modules/zoom/zoom.min.css'; 
+import 'swiper/modules/navigation/navigation.min.css'; 
+import 'swiper/modules/pagination/pagination.min.css'; 
+// Styles
+import "../../styles.css";
+import "../Card/Card.css";
+// import Swiper core and required modules
+import SwiperCore, {
+  Zoom,Navigation,Pagination
+} from 'swiper';
+
+// Swiper modules
+SwiperCore.use([Zoom,Navigation,Pagination]);
+
 const Axioscrudexample = () => {
 
     const [card, setCard] = useState(null);
+   
 
     useEffect(() => {
-        obtainCard();
+
     }, []);
+
 
 
     // CRUD Examples
@@ -16,8 +40,8 @@ const Axioscrudexample = () => {
         getAllCards()
             .then((response) => {
                 if(response.data && response.status === 200){
-                    alert(JSON.stringify(response.data));
-                    console.log(JSON.stringify(response.data));
+                    console.log(response.data);
+                    setCard(response.data);
                 }else{
                     throw new Error(`No Cards found`)
                 }
@@ -29,9 +53,9 @@ const Axioscrudexample = () => {
         getCardByID(id)
             .then((response) => {
                 if(response.data && response.status === 200){
-                    alert(JSON.stringify(response.data));
                     console.log(JSON.stringify(response.data));
                     setCard(response.data);
+                    
                 }else{
                     throw new Error('Card not found')
                 }
@@ -39,18 +63,19 @@ const Axioscrudexample = () => {
             .catch((error) => alert(`Something went wrong: ${error}`))
     }
 
-    const obtainCard = (id) => {
+     const obtainCard = (id) => {
         getCardByID(1)
             .then((response) => {
                 if(response.status === 200){
                     // console.table(response.data.results[0])
                     setCard(response.data);
+
                 }
             })
             .catch((error) => {
                 alert(`Somethin went wrong: ${error}`);
             })
-    }
+    } 
 
     
 
@@ -58,24 +83,57 @@ const Axioscrudexample = () => {
         <div>        
         { card !== null ?  
         (
-            <div>
-            <h1>Titulo : {card.title}</h1>
-            <h1>Username : {card.username}</h1>
-            <h1>Description: {card.description}</h1>
-            <h1>Category: {card.category}</h1>
-            <h1>Rating: {card.rating}</h1>
-            <h1>Price: {card.price}</h1>
+        <div className="card shadow p-1 mb-5 bg-white rounded ">
+          {/* Añadimos un operador ternario para barajar los casos en los que no haya ninguna imagen a */}
+          {card.pictures.length!==0 ?
+              <Swiper 
+                  style={{'--swiper-navigation-color': '#bababa','--swiper-pagination-color': '#fff'}}
+                  zoom={true} navigation={true} pagination={{"clickable": true}} className="mySwiper">
+                  {/* Recorremos el array de las url de las imagenes */}
+                  
+                  {card.pictures.map(i=>{
+                    return(
+                      <SwiperSlide>
+                        <div className="card-img-top">
+                          <img key={i} src= {i.url}
+                          alt={"Imagen " + i.id}
+                          />
+                        </div>
+                    </SwiperSlide>
+                )  
+                  })}
+              </Swiper>
+              : 
+              (
+                <div className="no-img">
+                  <h1>No hay imágenes disponibles</h1>
+                </div>
+              )
+            }
+            <div className="card-body">
+              <h5 className="card-title text-start">{card.title}</h5>
+              
+                  <div className="user">
+                    <i className="bi bi-person-circle"/>
+                      <span>{card.username}</span>
+                  </div>
+                  <div className="linea"></div>
+                  <div className="stars">
+                  {/* <p>{rating} stars</p> */}
+                  {/* TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida */}
+                    <i className="star bi bi-star-fill"></i>
+                    <i className="star bi bi-star-fill"></i>
+                    <i className="star bi bi-star-fill"></i>
+                    <i className="star bi bi-star"></i>
+                    <i className="star bi bi-star"></i>
+                    <span>{card.price} €</span>
+                    
+                  </div>  
             </div>
-            )
-            :null }
-                <button onClick={obtainAllCards}>
-                    Get All Cards
-                </button>
-               
-                <button onClick={() => obtainCardByID(1)}>
-                    Get Card 1
-                </button>
             </div>
+                    )
+                    :null }
+    </div>
     );
 }
 

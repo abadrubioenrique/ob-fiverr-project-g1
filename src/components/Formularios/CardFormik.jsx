@@ -1,31 +1,22 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Card } from '../../models/card.class';
 import "./cardFormik.css";
 const CardFormik = () => {
 	const [formulario, setFormulario] = useState(false);
-/*
-    const titleRef = useRef('');
-    const usernameRef = useRef('');
-    const categoryRef = useRef('');
-    const descriptionRef = useRef('');
-    const priceRef = useRef('');
-    const ratingRef = useRef('');
 
-    function addCard(e){
-        e.preventDefault();
-        const newCard = new Card(
-            titleRef.current.value,
-            usernameRef.current.value,
-            categoryRef.current.value,
-            descriptionRef.current.value,
-            priceRef.current,
-            ratingRef.current.value
-        );
-        add(newCard);
+    const [num, setNum] = useState(0);
+
+    const form = useRef(null);
+
+    const handleNumb = ()=>{
+        const datos = new FormData(form.current);
+        const objetosDatos = Object.fromEntries([...datos.entries()])
+        const {numUrl} = objetosDatos;
+        console.log(numUrl);
     }
-*/
+    
 	return (
 		
     <Formik
@@ -36,7 +27,6 @@ const CardFormik = () => {
             description:'',
             price:'',
             rating: '',
-
         }}
         validate={(values) => {
             let errors = {};
@@ -69,9 +59,11 @@ const CardFormik = () => {
             if(!values.rating){
                 errors.rating = 'Por favor ingrese una valoración'
             }
-
             return errors;
         }}
+
+        
+
         //onSubmit={(values, {resetForm},{addCard}) => {
             onSubmit={(values, {resetForm}) => {
             resetForm();
@@ -84,7 +76,7 @@ const CardFormik = () => {
         }}
     >
         {( {errors} ) => (
-            <Form className="formulario shadow">
+            <Form className="formulario shadow" ref={form}>
                 <div>
                     <label htmlFor="title">Title</label>
                     <Field                       
@@ -147,7 +139,19 @@ const CardFormik = () => {
 
                     </Field>
                     <ErrorMessage name="rating" component={() => (<div className="error">{errors.rating}</div>)} />
+                    
                 </div>
+                <div>
+                <label htmlFor="numUrl">Price</label>
+                    <Field name="numUrl" type="number" min="0" max="5" placeholder="numUrl" onChange={(e)=>{
+                        handleNumb(e);
+
+                    }}  />
+
+                    
+                </div>
+                
+                
                 
                 <button type="submit">Enviar</button>
                 {formulario && <p className="success">Formulario enviado con exito!</p>}
@@ -158,9 +162,6 @@ const CardFormik = () => {
 
 	);
 }
-/*
-CardFormik.protoTypes = {
-    add: PropTypes.func.isRequired
-}*/
+
  
 export default CardFormik;

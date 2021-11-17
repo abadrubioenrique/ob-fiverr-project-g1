@@ -14,8 +14,8 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-{/*     <App /> */}
-<AppAxios></AppAxios>
+    <App />
+{/* <AppAxios></AppAxios> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
