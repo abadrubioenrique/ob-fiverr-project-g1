@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-//Importamos el modelo de card
-import { Card } from '../../models/card.class';
+//Custom Hook Cards
+import { useCards } from '../../hooks/useCards';
 //Importamos el css de las card 
 import '../Card/Card.css';
-//Importamos el formulario de la card
-import CardFormik from '../Formularios/CardFormik';
-//import CardComponent from '../Card/CardComponent';
-import { getAllCards} from '../../services/axiosCRUDService';
 import CardComponent from '../Card/CardComponent';
+
+
 
 const CardListComponent = () => {
    /*  const defaultCard1 = new Card('Example','username','Description1',10.99,5,
@@ -26,36 +22,7 @@ const CardListComponent = () => {
     const defaultCard5 = new Card('Example','username','Description5',20.99,3,
     []);
  */
-    // Estado del componente
-    const [cards, setCards] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    // Control del ciclo de vida del componente
-    
-    useEffect(() => {
-        console.log('Card State has been modified');
-        setTimeout(()=>{
-            setLoading(false);
-        },1000);
-        obtainAllCards();
-        return () => {
-            console.log('CardList component is going to unmount...');
-        }
-
-    },[])
-
-    const obtainAllCards = () => {
-        getAllCards()
-            .then((response) => {
-                if(response.data && response.status === 200){
-                    setCards(response.data);
-/*                     console.log(response.data[id].pictures); */
-                }else{
-                    throw new Error(`No Cards found`)
-                }
-            })
-            .catch((error) => alert(`Something went wrong: ${error}`))
-    }
+    const {cards,loading} = useCards();
 
     
     const Cards = () =>{ 
@@ -67,7 +34,6 @@ const CardListComponent = () => {
                         key={index} 
                         card={card}
                         >
-                        
                     </CardComponent>
                     )
                 }
@@ -84,21 +50,14 @@ const CardListComponent = () => {
         <div>
         <h2>Ther are no cards to show</h2>
         <h2>Please, create one</h2>
-        <button className="btn btn-primary" onClick={obtainAllCards}>Mostrar Cards</button>
         </div>
         
         )
     }
     
-    const loadingStyle ={
-        color:'grey',
-        fontSize:'30px',
-        fontWeight:'bold'
-    }
-
     return (
         <div>
-             {loading ? (<p style={loadingStyle}>Loading cards...</p>) : cardsTable}
+             {loading ? (<p className="loading">Loading cards...</p>) : cardsTable}
         </div>
 
     );

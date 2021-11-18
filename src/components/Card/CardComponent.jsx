@@ -50,12 +50,11 @@ const CardComponent=({card})=> {
               <SwiperSlide key={index}>
                 <div className="card-img-top">
                 <img  src= {i.url}
-                          alt={"Imagen " + i.id}
-                  />
-                 
+                      alt={"Imagen " + i.id}
+                />
                 </div>
             </SwiperSlide>
-            
+        
         )  
           })}
       </Swiper>

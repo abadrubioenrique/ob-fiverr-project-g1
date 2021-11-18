@@ -55,3 +55,9 @@
 .no-img h1{
     text-align: center;
 }
+
+.loading{
+    color:grey;
+    font-size: 30px;
+    font-weight:'bold';
+}
