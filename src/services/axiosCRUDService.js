@@ -17,4 +17,18 @@ export const deleteCardByID = (id) => {
     return axios.delete(`http://ob-fiverr-backend.herokuapp.com/api/cards/${id}`);
 } 
 
+// Delete Card
+export const postCard = (title, username, category, description, price, rating) => {
+    let body = {
+        title: title,
+        username:username,
+        category:category,
+        description:description,
+        price:price,
+        rating: rating,
+    }
+     // Returns the response with a Promise
+    return axios.post('http://ob-fiverr-backend.herokuapp.com/api/cards',body);
+} 
+
 

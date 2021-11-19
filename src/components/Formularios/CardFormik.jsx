@@ -1,165 +1,163 @@
 import React, {useState, useRef,useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage,useFormikContext } from 'formik';
 import { Card } from '../../models/card.class';
 import "./cardFormik.css";
+import axios from '../../utils/config/axios.config.js';
+
 const CardFormik = () => {
 	const [formulario, setFormulario] = useState(false);
 
     const [num, setNum] = useState(0);
+    
+    const ApiUrl="http://ob-fiverr-backend.herokuapp.com/api/cards/";
 
-    const form = useRef(null);
+    const defaultState = {
+        url: ""
+      };
+      
+      function Row({ onChange, onRemove, url }) {
+        return (
+          <>
+          <label htmlFor="url">url</label>
+            <input
+              value={url}
+              onChange={(e) => onChange("url", e.target.value)}
+              placeholder="URL"
+            />
+      
+            <button className="btn btn-outline-danger eliminar" onClick={onRemove}><i class="bi bi-dash-circle"></i></button>
+          </>
+        );
+      }
 
-    const handleNumb = ()=>{
-        const datos = new FormData(form.current);
-        const objetosDatos = Object.fromEntries([...datos.entries()])
-        const {numUrl} = objetosDatos;
-        console.log(numUrl);
-    }
+      const [rows, setRows] = useState([defaultState]);
+
+  const handleOnChange = (index, name, value) => {
+    const copyRows = [...rows];
+    copyRows[index] = {
+      ...copyRows[index],
+      [name]: value
+    };
+    setRows(copyRows);
+  };
+
+  const handleOnAdd = () => {
+    setRows(rows.concat(defaultState));
+  };
+
+  const handleOnRemove = (index) => {
+    const copyRows = [...rows];
+    copyRows.splice(index, 1);
+    setRows(copyRows);
+  };
+
+    const [card, setCard] = useState(
+        {
+            data:[],
+            modalInsertar: false,
+            modalEliminar: false,
+            form:{
+              id:'',
+              title: '',
+              username: '',
+              category: '',
+              rating: '',
+              price: ''
+          
+            }
+          }
+
+    );
+      
+      const peticionGet=()=>{
+        setFormulario(true);
+        setTimeout(() => setFormulario(false), 3000);
+      axios.get(ApiUrl).then(response=>{
+        setCard({data: response.data});
+      }).catch(error=>{
+        console.log(error.message);
+      })
+      }
+      
+      const peticionPost=async()=>{
+           delete card.form.id; 
+       await axios.post(ApiUrl,card.form).then(response=>{
+          peticionGet();
+        }).catch(error=>{
+          console.log(error.message);
+        })
+      }
+      
+
+      const handleChange=async e=>{
+      e.persist();
+      await setCard({
+        form:{
+          ...card.form,
+          [e.target.name]: e.target.value
+        }
+      });
+      console.log(card.form);
+      }
+      const {form}=card;
     
 	return (
-		
-    <Formik
-        initialValues={{
-            title: '',
-            username:'',
-            category:'',
-            description:'',
-            price:'',
-            rating: '',
-        }}
-        validate={(values) => {
-            let errors = {};
+        <>
+        <h1>Creacion de una Card</h1>
+        <div className="formulario shadow">
 
-            // Validation title
-            if(!values.title){
-                errors.title = 'Por favor ingresa un title'
-            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,50}$/.test(values.title)){
-                errors.title = 'El title solo puede contener letras y espacios, y no debe superar los 50 caracteres'
-            }
-            // Validation username
-            if(!values.username){
-                errors.username = 'Por favor ingresa un username'
-            } else if(!/^[a-zA-ZÀ-ÿ\s]{1,16}$/.test(values.username)){
-                errors.username = 'El username solo puede contener letras y espacios y no debe superar los 16 caracteres'
-            }
-            // Validation category
-            if(!values.category){
-                errors.category = 'Por favor ingrese una categoría'
-            }
-            // Validation description
-            if(!values.description){
-                errors.description = 'Por favor ingrese una descripción'
-            }
-            // Validation price
-            if(!values.price){
-                errors.price = 'Por favor ingrese un precio'
-            }
-            // Validation rating
-            if(!values.rating){
-                errors.rating = 'Por favor ingrese una valoración'
-            }
-            return errors;
-        }}
+            <label htmlFor="id">Title</label>
+            <input className="form-control" type="text" name="title" id="title" onChange={handleChange} value={form?form.title: ''}/>
 
-        
+            <label htmlFor="username">Username</label>
+            <input className="form-control" type="text" name="username" id="username" onChange={handleChange} value={form?form.username: ''}/>
 
-        //onSubmit={(values, {resetForm},{addCard}) => {
-            onSubmit={(values, {resetForm}) => {
-            resetForm();
-            //addCard();
-            console.log('Formulario enviado');
-            alert(JSON.stringify(values, null, 2));
-            console.log(values);
-            setFormulario(true);
-            setTimeout(() => setFormulario(false), 5000);
-        }}
-    >
-        {( {errors} ) => (
-            <Form className="formulario shadow" ref={form}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <Field                       
-                        type="text" 
-                        id="title" 
-                        name="title" 
-                        placeholder="Card Title"
-                    />
-                    <ErrorMessage name="title" component={() => (<div className="error">{errors.title}</div>)} />
-                </div>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <Field
-                        type="text" 
-                        id="username" 
-                        name="username" 
-                        placeholder="Username"
-                    />
-                    <ErrorMessage name="username" component={() => (<div className="error">{errors.username}</div>)} />
-                </div>
+            <label htmlFor="category">Category</label>
+            <select name="category" id="category" onChange={handleChange} value={form?form.category: ''}>
+                <option value="">-- Select a category --</option>
+                <option value="1">Graphics & Design</option>
+                <option value="2">Digital Marketing</option>
+                <option value="3">Writing & Translation</option>
+                <option value="4">Video & Animation</option>
+                <option value="5">Music & Audio</option>
+                <option value="6">Programming & Tech</option>
+                <option value="7">Data</option>
+                <option value="8">Business</option>
+                <option value="9">Lifestyle</option>
 
-                <div>
-                <label htmlFor="category">Category</label>
-                    <Field name="category" as="select">
-                        <option value="">-- Select a category --</option>
-                        <option value="1">Graphics & Design</option>
-                        <option value="2">Digital Marketing</option>
-                        <option value="3">Writing & Translation</option>
-                        <option value="4">Video & Animation</option>
-                        <option value="5">Music & Audio</option>
-                        <option value="6">Programming & Tech</option>
-                        <option value="7">Data</option>
-                        <option value="8">Business</option>
-                        <option value="9">Lifestyle</option>
+            </select>
 
-                    </Field>
-                    <ErrorMessage name="category" component={() => (<div className="error">{errors.category}</div>)} />
-                </div>
-
-                <div>
-                <label htmlFor="description">Description</label>
-                    <Field name="description" as="textarea" maxLength={255} placeholder="Card Description" />
-                    <ErrorMessage name="description" component={() => (<div className="error">{errors.description}</div>)} />
-                </div>
-                <div>
-                <label htmlFor="price">Price</label>
-                    <Field name="price" type="number" placeholder="Price"  />
-                    <ErrorMessage name="price" component={() => (<div className="error">{errors.price}</div>)} />
-                </div>
-                
-                <div>
-                <label htmlFor="rating">Rating</label>
-                    <Field name="rating" as="select">
-                        <option value="">-- Select rating --</option>
+            <label htmlFor="price">Price</label>
+            <input className="form-control" type="number" name="price" id="price" onChange={handleChange} value={form?form.price:''}/>
+            <label htmlFor="rating">Rating</label>
+            <select name="rating" id="rating" onChange={handleChange} value={form?form.rating: ''}>
+            <option value="">-- Select rating --</option>
                         <option value="5">5</option>
                         <option value="4">4</option>
                         <option value="3">3</option>
                         <option value="2">2</option>
                         <option value="1">1</option>
+            </select>
+    <div >
+      {rows.map((row, index) => (
+        <Row
+          {...row}
+          onChange={(name, value) => handleOnChange(index, name, value)}
+          onRemove={() => handleOnRemove(index)}
+          key={index}
+        />
+      ))}
+      <button className="btn btn-success agregar" onClick={handleOnAdd}><i class="bi bi-plus-circle"></i></button>
+    </div>
+            <div className="enviar">
+            <button type="submit" className="btn btn-success" onClick={()=>peticionPost()}>Crear</button>
+            {formulario && <p className="success">Formulario enviado con exito!</p>}
+            </div>
 
-                    </Field>
-                    <ErrorMessage name="rating" component={() => (<div className="error">{errors.rating}</div>)} />
-                    
-                </div>
-                <div>
-                <label htmlFor="numUrl">Price</label>
-                    <Field name="numUrl" type="number" min="0" max="5" placeholder="numUrl" onChange={(e)=>{
-                        handleNumb(e);
-
-                    }}  />
-
-                    
-                </div>
-                
-                
-                
-                <button type="submit">Enviar</button>
-                {formulario && <p className="success">Formulario enviado con exito!</p>}
-            </Form>
-        )}
-
-    </Formik>
-
+        </div>
+        </>
+    
 	);
 }
 
