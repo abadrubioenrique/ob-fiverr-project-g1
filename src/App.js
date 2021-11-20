@@ -1,7 +1,7 @@
 import './App.css';
 import CardComponent from './components/Card/CardComponent';
 import CardListComponent from './components/container/card_list';
-import CardFormik from './components/Formularios/CardFormik';
+import CardForm from './components/Formularios/CardForm';
 
 function App() {
   
@@ -11,7 +11,7 @@ function App() {
         
         {/* <CardComponent></CardComponent> */}
           {/* <CardListComponent></CardListComponent> */}
-          <CardFormik></CardFormik>
+          <CardForm></CardForm>
 
       </header>
     </div>

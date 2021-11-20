@@ -1,0 +1,11 @@
+.navegacion{
+    padding-bottom: 10px;
+}
+.nav-item{
+    padding: 5px;
+}
+
+.route:hover{
+    background-color: white!important;
+    color: #0d6efd!important;
+}
