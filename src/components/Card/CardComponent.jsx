@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-//Importamos el modelo de card
-import { Card } from '../../models/card.class';
+
 // Import Swiper styles
 import 'swiper/swiper.min.css'; 
 import 'swiper/modules/zoom/zoom.min.css'; 

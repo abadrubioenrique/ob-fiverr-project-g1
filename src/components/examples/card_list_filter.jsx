@@ -1,8 +1,8 @@
-import './table.css';
+
 import {useEffect, useState} from 'react';
 import axios from "axios";
 import CardComponent from '../Card/CardComponent';
-
+import './table.css';
 
 const CardListFilter = () => {
 

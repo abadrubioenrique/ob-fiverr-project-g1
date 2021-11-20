@@ -14,7 +14,7 @@ const Carddetailpage = () => {
 
     useEffect(() => {
         obtainOneCard(id);
-    },[])
+    },[id])
 
     const obtainOneCard = async(id) => {
         const response = await getCardByID(id)

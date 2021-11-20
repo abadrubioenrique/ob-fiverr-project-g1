@@ -1,7 +1,5 @@
-import React, {useState, useRef,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage,useFormikContext } from 'formik';
-import { Card } from '../../models/card.class';
+import React, {useState} from 'react';
+
 import "./cardForm.css";
 import axios from '../../utils/config/axios.config.js';
 
@@ -28,8 +26,7 @@ const CardForm = () => {
 
     );
     
-    const [body, setBody] = useState();
-          
+         
       const peticionGet=()=>{
         
         setTimeout(() => setFormulario(false), 3000);
