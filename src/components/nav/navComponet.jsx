@@ -6,13 +6,13 @@ const navComponent = () => {
         
         <div className="navegacion">
         <nav className="nav nav-pills nav-fill">
-        <div class="nav-item">
+        <div className="nav-item">
             <Link className="nav-link active route" to="/">Dashboard</Link>
             </div>
-        <div class="nav-item">
+        <div className="nav-item">
             <Link className="nav-link active route" to="/add">Create a new project</Link>
         </div>
-        <div class="nav-item">
+        <div className="nav-item">
             <Link className="nav-link active route" to="/filter">Search by category</Link>
         </div>
         </nav>
