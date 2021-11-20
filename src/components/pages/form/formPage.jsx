@@ -7,8 +7,11 @@ const FormPage = () => {
     return (
 
     <div className="App">
+        <div className="nav">
+          <NavComponent></NavComponent>
+    </div>
       <header className="App-header">
-      <NavComponent></NavComponent>
+
       <CardForm></CardForm>
       </header>
       </div>

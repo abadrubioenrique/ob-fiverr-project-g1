@@ -8,8 +8,9 @@ const FilterPage = () => {
     return (
 
     <div className="App">
+            <NavComponent></NavComponent>
       <header className="App-header">
-        <NavComponent></NavComponent>
+
         <TableExample></TableExample>
       </header>
       </div>

@@ -1,5 +1,7 @@
 .navegacion{
     padding-bottom: 10px;
+    position: fixed;
+    top: 0;
 }
 .nav-item{
     padding: 5px;

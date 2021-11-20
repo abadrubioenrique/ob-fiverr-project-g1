@@ -31,14 +31,17 @@ const Carddetailpage = () => {
        
 
    <div className="App">
+    <div className="nav">
+          <NavComponent></NavComponent>
+    </div>
       <header className="App-header">
-      <NavComponent></NavComponent>
+
       <div>
         {loading ? (<p className="loading">Loading projects...</p>) : 
         (
         <div>
         
-        <h2>Title: {card.title}</h2>
+        <h1 className="title">Title: {card.title}</h1>
         <h3>Username: {card.username}</h3>
         <p>Description: {card.description}</p>
         <h3>Category: {card.category}</h3>

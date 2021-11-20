@@ -44,7 +44,8 @@ peticionGet();
 
 return (
   <div className="App">
-    <div className="containerInput">
+
+<div className="containerInput">
       <input
         className="form-control inputBuscar"
         value={busqueda}
@@ -53,8 +54,8 @@ return (
       />
 
     </div>
-
     <div className="body">        
+    
          {projects && 
             projects.map((card,index)=>(
               <CardComponent 

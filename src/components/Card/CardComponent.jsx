@@ -26,6 +26,70 @@ const CardComponent=({card})=> {
   const rating=card.rating;
   const numImg=card.pictures.length;
   
+
+  const contarStrellas= (rating)=>{
+    switch(rating){
+      case 1:
+        return (
+            <div className="stars">
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <span>{card.price} €</span>
+          </div> ) ;
+        case 2:
+          return (
+            <div className="stars">
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <span>{card.price} €</span>
+          </div>  
+          );
+          case 3:
+            return (
+              <div className="stars">
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star"></i>
+              <i className="star bi bi-star"></i>
+              <span>{card.price} €</span>
+            </div> 
+            );
+            case 4:
+              return (
+                <div className="stars">
+                <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star"></i>
+                <span>{card.price} €</span>
+              </div> 
+              );
+              case 5:
+                return (
+                  <div className="stars">
+                  <i className="star bi bi-star-fill"></i>
+                  <i className="star bi bi-star-fill"></i>
+                  <i className="star bi bi-star-fill"></i>
+                  <i className="star bi bi-star-fill"></i>
+                  <i className="star bi bi-star-fill"></i>
+                  <span>{card.price} €</span>
+                </div> 
+                );
+                default:
+                  return rating;
+    }
+  }
+
+
+
   return (
     
   <div className="card shadow p-1 mb-5 bg-white rounded ">
@@ -71,16 +135,10 @@ const CardComponent=({card})=> {
               <span>{card.username}</span>
           </div>
           <div className="linea"></div>
-          <div className="stars">
-          {/* <p>{rating} stars</p> */}
-          {/* TODO Crear una función que pinte las estrellas en funcion de una puntuación obtenida */}
-            <i className="star bi bi-star-fill"></i>
-            <i className="star bi bi-star-fill"></i>
-            <i className="star bi bi-star-fill"></i>
-            <i className="star bi bi-star"></i>
-            <i className="star bi bi-star"></i>
-            <span>{card.price} €</span>
-          </div>  
+
+    <div>{contarStrellas(rating)}</div>
+
+
     </div>
     </div>
   )

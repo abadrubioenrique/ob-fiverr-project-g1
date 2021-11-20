@@ -8,8 +8,11 @@ const CardsPage = () => {
     return (
 
     <div className="App">
+    <div className="nav">
+          <NavComponent></NavComponent>
+    </div>
       <header className="App-header">
-      <NavComponent></NavComponent>
+
       <CardListFilter></CardListFilter>
       </header>
       </div>
