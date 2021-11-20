@@ -1,10 +1,10 @@
 import './table.css';
 import {useEffect, useState} from 'react';
 import axios from "axios";
+import CardComponent from '../Card/CardComponent';
 
 
-
-const TableExample = () => {
+const CardListFilter = () => {
 
 const [projects, setProjects]= useState([]);
 const [tablaProjects, setTablaProjects]= useState([]);
@@ -15,6 +15,7 @@ await axios.get("http://ob-fiverr-backend.herokuapp.com/api/cards")
 .then(response=>{
   setProjects(response.data);
   setTablaProjects(response.data);
+  console.log("Use Card: " + JSON.stringify(response.data));
 }).catch(error=>{
   console.log(error);
 })
@@ -28,7 +29,7 @@ filtrar(e.target.value);
 const filtrar=(terminoBusqueda)=>{
 var resultadosBusqueda=tablaProjects.filter((elemento)=>{
   console.log(elemento);
-  if(elemento.title.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+  if(elemento.category.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
   ){
     return elemento;
   }
@@ -53,41 +54,19 @@ return (
 
     </div>
 
-   <div className="table-responsive">
-     <table className="table table-sm table-bordered">
-       <thead>
-         <tr>
-           <th>ID</th>
-           <th>Title</th>
-           <th>Username</th>
-           <th>Description</th>
-           <th>Category</th>
-           <th>Rating</th>
-           <th>Price</th>
-
-         </tr>
-       </thead>
-
-       <tbody>
+    <div className="body">        
          {projects && 
-            projects.map((projects)=>(
-           <tr key={projects.id}>
-             <td>{projects.id}</td>
-             <td>{projects.title}</td>
-             <td>{projects.username}</td>
-             <td>{projects.description}</td>
-             <td>{projects.category}</td>
-             <td>{projects.rating}</td>
-             <td>{projects.price}</td>
-           </tr>
+            projects.map((card,index)=>(
+              <CardComponent 
+                        key={index} 
+                        card={card}
+                        >
+                    </CardComponent>
          ))}
-       </tbody>
+</div>
 
-     </table>
-
-   </div>
   </div>
 );
 }
 
-export default TableExample;
+export default CardListFilter;

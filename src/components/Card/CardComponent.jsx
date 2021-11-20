@@ -16,18 +16,13 @@ import "./Card.css";
 import SwiperCore, {
   Zoom,Navigation,Pagination
 } from 'swiper';
-
+import { Link } from "react-router-dom";
 // Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
+
+
 const CardComponent=({card})=> {
-  useEffect(() => {
-    console.log('Created Card')
-    console.log(`Card: ${card.title}`)
-    return () => {
-        console.log(`Card: ${card.title} is going to unmount`);
-    }
-}, [card]);
 
   const rating=card.rating;
   const numImg=card.pictures.length;
@@ -67,7 +62,10 @@ const CardComponent=({card})=> {
       )
     }
     <div className="card-body">
-      <h5 className="card-title text-start">{card.title}</h5>
+      <h5 className="card-title text-start">
+      <Link to={`/projects/${card.id}`}>{card.title}</Link>
+      </h5>
+
       
           <div className="user">
             <i className="bi bi-person-circle"/>

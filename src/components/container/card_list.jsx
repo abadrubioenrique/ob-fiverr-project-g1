@@ -14,6 +14,7 @@ const CardListComponent = () => {
     const Cards = () =>{ 
         return (
         <div className="body">            
+            
             { cards.map((card, index) => {
                 return (
                     <CardComponent 
