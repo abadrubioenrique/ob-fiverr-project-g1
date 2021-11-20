@@ -61,6 +61,7 @@ return (
            <th>Description</th>
            <th>Category</th>
            <th>Rating</th>
+           <th>Price</th>
 
          </tr>
        </thead>
@@ -75,6 +76,7 @@ return (
              <td>{projects.description}</td>
              <td>{projects.category}</td>
              <td>{projects.rating}</td>
+             <td>{projects.price}</td>
            </tr>
          ))}
        </tbody>

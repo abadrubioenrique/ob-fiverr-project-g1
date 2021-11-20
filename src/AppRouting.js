@@ -11,8 +11,6 @@ import FilterPage from './components/pages/filter/filterPage';
 function AppRouting() {
   
   return (
-    <>
-
     <Router>
         <Routes>
           <Route path="/" element={<CardsPage />} />
@@ -22,7 +20,6 @@ function AppRouting() {
           <Route path="*" element={<Notfoundpage />} />
         </Routes>
       </Router>
-      </>
   );
 }
 
