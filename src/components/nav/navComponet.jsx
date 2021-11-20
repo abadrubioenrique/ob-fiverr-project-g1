@@ -12,8 +12,12 @@ const navComponent = () => {
         <div class="nav-item">
             <Link className="nav-link active route" to="/add">Create a new project</Link>
         </div>
+        <div class="nav-item">
+            <Link className="nav-link active route" to="/filter">Search by category</Link>
+        </div>
         </nav>
         </div>
+        
 
 
     )
