@@ -6,7 +6,7 @@ import axios from '../../utils/config/axios.config.js';
 const CardForm = () => {
 	const [formulario, setFormulario] = useState(false);
     
-    const ApiUrl="http://ob-fiverr-backend.herokuapp.com/api/cards/";
+    const ApiUrl="https://ob-fiverr-backend.herokuapp.com/api/cards";
 
     const [card, setCard] = useState(
         {

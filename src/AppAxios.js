@@ -1,8 +1,6 @@
 import './App.css';
-import CardComponent from './components/Card/CardComponent';
-import CardListComponent from './components/container/card_list';
 import Axioscrudexample from './components/examples/AxiosCRUD';
-import CardFormik from './components/Formularios/CardFormik';
+
 
 function App() {
   return (
