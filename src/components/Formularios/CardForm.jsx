@@ -86,10 +86,10 @@ const CardForm = () => {
         <form onSubmit={handleSubmit} className="formulario shadow">
 
             <label htmlFor="id">Title</label>
-            <input className="form-control" maxLength="50" type="text" name="title" id="title" onChange={handleChange} value={form?form.title: ''}/>
+            <input className="form-control" maxLength="50" type="text" name="title" id="title" required onChange={handleChange} value={form?form.title: ''}/>
 
             <label htmlFor="username">Username</label>
-            <input className="form-control" type="text" name="username" id="username" onChange={handleChange} value={form?form.username: ''}/>
+            <input className="form-control" type="text" name="username" id="username" required onChange={handleChange} value={form?form.username: ''}/>
 
           {/* TODO QUITAR COMENTARIO CUANDO AVISE EL BACK */}
            {/*  <label htmlFor="category">Category</label>
@@ -107,7 +107,7 @@ const CardForm = () => {
 
             </select> */}
             <label htmlFor="category">Category</label>
-            <select name="category" id="category" onChange={handleChange} value={form?form.category: ''}>
+            <select name="category" id="category" onChange={handleChange} required value={form?form.category: ''}>
                 <option value="">-- Select a category --</option>
                 <option value="1">Graphics & Design</option>
                 <option value="2">Digital Marketing</option>
@@ -122,12 +122,12 @@ const CardForm = () => {
             </select> 
 
             <label htmlFor="rating">Description</label>
-            <textarea maxLength="255" name="description" id="description" onChange={handleChange} value={form?form.description: ''}>
+            <textarea maxLength="255" name="description" id="description" required onChange={handleChange} value={form?form.description: ''}>
             </textarea>
             <label htmlFor="price">Price</label>
-            <input className="form-control" type="number" name="price" id="price" onChange={handleChange} value={form?form.price:''}/>
+            <input className="form-control" type="number" name="price" id="price" required onChange={handleChange} value={form?form.price:''}/>
             <label htmlFor="rating">Rating</label>
-            <select name="rating" id="rating" onChange={handleChange} value={form?form.rating: ''}>
+            <select name="rating" id="rating" onChange={handleChange} required value={form?form.rating: ''}>
             <option value="">-- Select rating --</option>
                         <option value="5">5</option>
                         <option value="4">4</option>
@@ -136,7 +136,7 @@ const CardForm = () => {
                         <option value="1">1</option>
             </select>
             <label htmlFor="url">Url</label>
-            <input className="form-control" type="text" name="url" id="url" onChange={handleChange} value={form?form.url:''}/>
+            <input className="form-control" type="text" name="url" id="url" required onChange={handleChange} value={form?form.url:''}/>
             <div className="enviar">
             <button type="submit" className="btn btn-success" >Add</button>
             {formulario && <p className="success">Form sent successfully!</p>}
