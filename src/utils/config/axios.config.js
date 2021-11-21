@@ -3,7 +3,7 @@ import axios from 'axios';
 // Default config for AXIOS
 export default axios.create(
     {
-        baseURL: 'http://ob-fiverr-backend.herokuapp.com/api',
+        baseURL: 'https://ob-fiverr-backend.herokuapp.com/api',
         responseType: 'json',
         timeout: 6000
     }

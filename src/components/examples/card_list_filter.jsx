@@ -11,7 +11,7 @@ const [tablaProjects, setTablaProjects]= useState([]);
 const [busqueda, setBusqueda]= useState("");
 
 const peticionGet=async()=>{
-await axios.get("http://ob-fiverr-backend.herokuapp.com/api/cards")
+await axios.get("https://ob-fiverr-backend.herokuapp.com/api/cards")
 .then(response=>{
   setProjects(response.data);
   setTablaProjects(response.data);

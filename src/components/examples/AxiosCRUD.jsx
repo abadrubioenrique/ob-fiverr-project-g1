@@ -1,13 +1,10 @@
 import React , {useState, useEffect} from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
 import { getAllCards, getCardByID,} from '../../services/axiosCRUDService';
 import './axios.css';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-//Importamos el modelo de card
-import { Card } from '../../models/card.class';
+
 // Import Swiper styles
 import 'swiper/swiper.min.css'; 
 import 'swiper/modules/zoom/zoom.min.css'; 
