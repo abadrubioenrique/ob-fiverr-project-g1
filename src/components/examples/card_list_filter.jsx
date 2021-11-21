@@ -49,7 +49,7 @@ return (
       <input
         className="form-control inputBuscar"
         value={busqueda}
-        placeholder="Search by category 1-9"
+        placeholder="Graphics & Design, Digital Marketing, Writing & Translation, Video & Animation, Music & Audio, Programming & Tech,Data, Business, Lifestyle"
         onChange={handleChange}
       />
 

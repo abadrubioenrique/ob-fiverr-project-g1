@@ -1,0 +1,29 @@
+.fotos{
+max-width: 680px;
+margin: 0 auto;
+
+}
+
+.detail{
+    display: block;
+    text-align: center;
+}
+.username{
+    color:#ff5e00;
+    font-weight: bold;
+    font-size: 2rem;
+}
+.detail h1{
+    margin: 0 auto;
+    font-size: 3rem;
+}
+.detail h3{
+    margin: 5px;
+}
+.detail p{
+    text-align: start;
+    margin: 0;
+}
+.detail div{
+    text-align: center;
+}
