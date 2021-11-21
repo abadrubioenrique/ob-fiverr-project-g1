@@ -1,0 +1,63 @@
+.mySwiper{
+    width: 100%!important;
+    height: 60%!important;
+}
+.card{
+    margin: 5px 2.5%;
+    width: 330px;
+    height: 400px;
+    background-color: white;
+    color: black;
+}
+.card-text{
+    font-size: 1.5rem;
+}
+.card-title{
+    font-weight: bold;
+}
+.user{
+    text-align: start;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+.user i{
+    margin-right:10px;
+}
+.stars{
+    text-align: start;
+    margin: 2px;
+
+}
+.stars span{
+    display:inline-block;
+    position:absolute;
+    right:0;
+    margin-right: 10px;
+
+}
+.star{
+    margin-right: 1px ;
+    color: orange;
+}
+
+.linea{
+    border-top: 2px solid #bababa;
+    height: 2px;
+    max-width: 100%;
+    padding: 0;
+    margin: 10px auto 10px auto;
+}
+.no-img{
+    margin: 10px;
+    width: 300px;
+    height: 400px;
+}
+.no-img h1{
+    text-align: center;
+}
+
+.loading{
+    color:grey;
+    font-size: 30px;
+    font-weight:'bold';
+}
