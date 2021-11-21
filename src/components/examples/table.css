@@ -13,13 +13,13 @@
   
   @media (max-width: 988px){
   
-    .inputBuscar{
-      width: 100% !important;
-    }
-  
-    .App{
-      padding: 40px 5px;
-    }
+  .inputBuscar{
+    width: 100% !important;
+  }
+
+  .App{
+    padding: 40px 5px;
+  }
   
     
   .containerInput{
