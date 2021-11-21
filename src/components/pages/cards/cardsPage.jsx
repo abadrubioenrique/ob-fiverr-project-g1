@@ -1,5 +1,4 @@
 import React from 'react';
-import CardListComponent from '../../container/card_list';
 import '../../../App.css';
 import NavComponent from '../../nav/navComponet';
 import CardListFilter from '../../examples/card_list_filter';
