@@ -91,8 +91,7 @@ const CardForm = () => {
             <label htmlFor="username">Username</label>
             <input className="form-control" type="text" name="username" id="username" required onChange={handleChange} value={form?form.username: ''}/>
 
-          {/* TODO QUITAR COMENTARIO CUANDO AVISE EL BACK */}
-           {/*  <label htmlFor="category">Category</label>
+            <label htmlFor="category">Category</label>
             <select name="category" id="category" onChange={handleChange} value={form?form.category: ''}>
                 <option value="">-- Select a category --</option>
                 <option value="Graphics & Design">Graphics & Design</option>
@@ -105,21 +104,8 @@ const CardForm = () => {
                 <option value="Business">Business</option>
                 <option value="Lifestyle">Lifestyle</option>
 
-            </select> */}
-            <label htmlFor="category">Category</label>
-            <select name="category" id="category" onChange={handleChange} required value={form?form.category: ''}>
-                <option value="">-- Select a category --</option>
-                <option value="1">Graphics & Design</option>
-                <option value="2">Digital Marketing</option>
-                <option value="3">Writing & Translation</option>
-                <option value="4">Video & Animation</option>
-                <option value="5">Music & Audio</option>
-                <option value="6">Programming & Tech</option>
-                <option value="7">Data</option>
-                <option value="8">Business</option>
-                <option value="9">Lifestyle</option>
-
-            </select> 
+            </select>
+            
 
             <label htmlFor="rating">Description</label>
             <textarea maxLength="255" name="description" id="description" required onChange={handleChange} value={form?form.description: ''}>
