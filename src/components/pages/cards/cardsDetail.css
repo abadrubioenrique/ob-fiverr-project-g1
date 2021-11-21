@@ -22,7 +22,7 @@ margin: 0 auto;
 }
 .detail p{
     text-align: start;
-    margin: 0;
+    margin: 0px 150px 0px 150px;
 }
 .detail div{
     text-align: center;

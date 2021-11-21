@@ -4,7 +4,7 @@
   }
   
   .containerInput{
-    align-items: end;
+    align-items: flex-end;
     right: 0;
     display: flex;
     justify-content:center;
@@ -13,13 +13,13 @@
   
   @media (max-width: 988px){
   
-    .inputBuscar{
-      width: 100% !important;
-    }
-  
-    .App{
-      padding: 40px 5px;
-    }
+  .inputBuscar{
+    width: 100% !important;
+  }
+
+  .App{
+    padding: 40px 5px;
+  }
   
     
   .containerInput{
