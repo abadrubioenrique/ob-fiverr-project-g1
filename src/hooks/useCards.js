@@ -3,8 +3,9 @@ import { getAllCards} from '../services/axiosCRUDService';
 export const useCards = ()=>{
 
     // Estado del componente
-    const [cards, setCards] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [projects, setProjects]= useState([]);
+    const [tableProjects, setTableProjects]= useState([]);
 
     // Control del ciclo de vida del componente
 
@@ -18,16 +19,15 @@ export const useCards = ()=>{
     const obtainAllCards = async() => {
         const response = await getAllCards()
             if(response.data && response.status === 200){
-                setCards(response.data);
-
+                setProjects(response.data);
+                setTableProjects(response.data);
             }else{
                 throw new Error(`No Cards found`)
             }
-
     }
 
     return{
-        cards, loading
+        projects,tableProjects, loading
     }
 
 

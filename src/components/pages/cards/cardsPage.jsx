@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../../App.css';
+import CardListFilter from '../../container/card_list_filter';
 import NavComponent from '../../nav/navComponet';
-import CardListFilter from '../../examples/card_list_filter';
 
 const CardsPage = () => {
     return (
@@ -11,7 +11,6 @@ const CardsPage = () => {
           <NavComponent></NavComponent>
     </div>
       <header className="App-header">
-
       <CardListFilter></CardListFilter>
       </header>
       </div>
