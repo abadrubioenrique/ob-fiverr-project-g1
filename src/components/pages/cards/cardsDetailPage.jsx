@@ -43,66 +43,66 @@ const Carddetailpage = () => {
             }
 
     }
-    const contarStrellas= (rating)=>{
-        switch(rating){
-          case 1:
+/**
+ * Mostrar estrellas en funcion del rating
+ * @param {*} rating 
+ * @returns 
+ */
+  const contarStrellas= (rating)=>{
+    switch(rating){
+      case 1:
+        return (
+            <div className="stars">
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+          </div> ) ;
+        case 2:
+          return (
+            <div className="stars">
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star-fill"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+            <i className="star bi bi-star"></i>
+          </div>  
+          );
+          case 3:
             return (
-                <div className="stars">
-                <i className="star bi bi-star-fill"></i>
-                <i className="star bi bi-star"></i>
-                <i className="star bi bi-star"></i>
-                <i className="star bi bi-star"></i>
-                <i className="star bi bi-star"></i>
-                
-              </div> ) ;
-            case 2:
+              <div className="stars">
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star-fill"></i>
+              <i className="star bi bi-star"></i>
+              <i className="star bi bi-star"></i>
+            </div> 
+            );
+            case 4:
               return (
                 <div className="stars">
                 <i className="star bi bi-star-fill"></i>
                 <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star-fill"></i>
+                <i className="star bi bi-star-fill"></i>
                 <i className="star bi bi-star"></i>
-                <i className="star bi bi-star"></i>
-                <i className="star bi bi-star"></i>
-                
-              </div>  
+              </div> 
               );
-              case 3:
+              case 5:
                 return (
                   <div className="stars">
                   <i className="star bi bi-star-fill"></i>
                   <i className="star bi bi-star-fill"></i>
                   <i className="star bi bi-star-fill"></i>
-                  <i className="star bi bi-star"></i>
-                  <i className="star bi bi-star"></i>
-                  
+                  <i className="star bi bi-star-fill"></i>
+                  <i className="star bi bi-star-fill"></i>
                 </div> 
                 );
-                case 4:
-                  return (
-                    <div className="stars">
-                    <i className="star bi bi-star-fill"></i>
-                    <i className="star bi bi-star-fill"></i>
-                    <i className="star bi bi-star-fill"></i>
-                    <i className="star bi bi-star-fill"></i>
-                    <i className="star bi bi-star"></i>
-                    
-                  </div> 
-                  );
-                  case 5:
-                    return (
-                      <div className="stars">
-                      <i className="star bi bi-star-fill"></i>
-                      <i className="star bi bi-star-fill"></i>
-                      <i className="star bi bi-star-fill"></i>
-                      <i className="star bi bi-star-fill"></i>
-                      <i className="star bi bi-star-fill"></i>
-                      
-                    </div> 
-                    );
-                    default:
-                      return rating;
-        }
-      }
+                default:
+                  return rating;
+    }
+  }
     return (
        
 
@@ -112,10 +112,10 @@ const Carddetailpage = () => {
     </div>
       <header className="App-header">
 
-      <div>
+      <div className="details">
         {loading ? (<p className="loading">Loading projects...</p>) : 
         (
-        <div className="details">
+        <>
         
         <div className="fotos">
 
@@ -139,26 +139,26 @@ const Carddetailpage = () => {
           })}
       </Swiper>
       </div>
-                <div className="detail">
-                    <h1 className="title centro">{card.title}</h1>
-                        <span>by </span>
-                        <span className="username">{card.username}</span>
-                    <div className="description Derecha">
-                        <p>{card.description}</p>
-                    </div>
-                        <h3>Category: {card.category}</h3>
-                        <h3>Price: {card.price}€</h3>
-                    <div className="puntuacion">
-                    {contarStrellas(card.rating)}
-                    </div>
-                </div>
+          <div className="detail">
+              <h1 className="title">{card.title}</h1>
+                  <span>by </span>
+                  <span className="username">{card.username}</span>
+              <div className="description Derecha">
+                  <p>{card.description}</p>
+              </div>
+                  <h3>Category: {card.category}</h3>
+                  <h3>Price: {card.price}€</h3>
+              <div className="puntuacion">
+              {contarStrellas(card.rating)}
+              </div>
+          </div>
 
-        </div>
+        </>
        ) 
         }
-   </div>
-      </header>
       </div>
+      </header>
+    </div>
 
 
        

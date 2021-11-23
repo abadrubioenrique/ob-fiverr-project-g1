@@ -1,8 +1,6 @@
 import React from 'react';
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-
 // Import Swiper styles
 import 'swiper/swiper.min.css'; 
 import 'swiper/modules/zoom/zoom.min.css'; 
@@ -19,14 +17,16 @@ import { Link } from "react-router-dom";
 // Swiper modules
 SwiperCore.use([Zoom,Navigation,Pagination]);
 
-
-
 const CardComponent=({card})=> {
 
   const rating=card.rating;
   const numImg=card.pictures.length;
   
-
+/**
+ * Mostrar estrellas en funcion del rating
+ * @param {*} rating 
+ * @returns 
+ */
   const contarStrellas= (rating)=>{
     switch(rating){
       case 1:
@@ -88,8 +88,6 @@ const CardComponent=({card})=> {
     }
   }
 
-
-
   return (
     
   <div className="card shadow p-1 mb-5 bg-white rounded ">
@@ -137,6 +135,7 @@ const CardComponent=({card})=> {
           <div className="linea"></div>
 
     <div>{contarStrellas(rating)}</div>
+  
 
 
     </div>

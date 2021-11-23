@@ -6,6 +6,7 @@ import axios from '../../utils/config/axios.config.js';
 const CardForm = () => {
 	const [formulario, setFormulario] = useState(false);
     
+    //URL de la API
     const ApiUrl="https://ob-fiverr-backend.herokuapp.com/api/cards";
 
     const [card, setCard] = useState(
@@ -20,15 +21,13 @@ const CardForm = () => {
               rating: '',
               price: ''
             },
-
-            
           }
-
     );
     
-         
+      /**
+       * Peticion Get a la API
+       */
       const peticionGet=()=>{
-        
         setTimeout(() => setFormulario(false), 3000);
       axios.get(ApiUrl).then(response=>{
         setCard({data: response.data});
@@ -36,9 +35,11 @@ const CardForm = () => {
         console.log(error.message);
       })
       }
-      
+
+      /**
+       * Peticion Get a la API
+       */
       const peticionPost=async()=>{
-           //delete card.form.id; 
        await axios.post(ApiUrl,
         {
           id:card.form.id,
@@ -52,8 +53,6 @@ const CardForm = () => {
             url:card.form.url
           }]
         }
-        
-        
        ).then(response=>{
           peticionGet();
         }).catch(error=>{
@@ -61,17 +60,18 @@ const CardForm = () => {
         })
       }
       
+      /**
+       * OnChange
+       * @param {*} e 
+       */
       const handleChange=async e=>{
       e.persist();
       await setCard({
         form:{
           ...card.form,
-          [e.target.name]: e.target.value
-          
+          [e.target.name]: e.target.value  
         }
-
       });
-      console.log(card.form);
       }
       const handleSubmit=async e=>{
         e.preventDefault(setFormulario(false));
@@ -103,10 +103,8 @@ const CardForm = () => {
                 <option value="Data">Data</option>
                 <option value="Business">Business</option>
                 <option value="Lifestyle">Lifestyle</option>
-
             </select>
             
-
             <label htmlFor="rating">Description</label>
             <textarea maxLength="255" name="description" id="description" required onChange={handleChange} value={form?form.description: ''}>
             </textarea>
@@ -121,7 +119,7 @@ const CardForm = () => {
                         <option value="2">2</option>
                         <option value="1">1</option>
             </select>
-            <label htmlFor="url">Url</label>
+            <label htmlFor="url">Url for image</label>
             <input className="form-control" type="text" name="url" id="url" required onChange={handleChange} value={form?form.url:''}/>
             <div className="enviar">
             <button type="submit" className="btn btn-success" >Add</button>

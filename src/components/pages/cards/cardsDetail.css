@@ -1,6 +1,9 @@
 .fotos{
 max-width: 680px;
+min-width: 50px;
 margin: 0 auto;
+margin-bottom: 10px;
+text-align: center;
 }
 
 .detail{
@@ -26,3 +29,19 @@ margin: 0 auto;
 .detail div{
     text-align: center;
 }
+
+
+@media (max-width: 988px){
+    .details{
+        margin: 3%;
+        }
+    .detail{
+       margin: 3%;
+    }
+    .detail p{
+        margin: 0px 50px 0px 50px;
+    }
+    .fotos img{
+        max-width: 550px;
+    }
+	}
