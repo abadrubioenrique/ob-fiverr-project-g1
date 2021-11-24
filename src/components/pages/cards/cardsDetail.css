@@ -1,9 +1,12 @@
 .fotos{
-max-width: 680px;
+max-width: 370px;
 min-width: 50px;
 margin: 0 auto;
 margin-bottom: 10px;
 text-align: center;
+}
+.fotos img{
+    max-width: 500px;
 }
 
 .detail{
@@ -16,32 +19,24 @@ text-align: center;
     font-size: 2rem;
 }
 .detail h1{
-    margin: 0 auto;
     font-size: 3rem;
 }
 .detail h3{
     margin: 5px;
 }
 .detail p{
-    text-align: start;
-    margin: 0px 150px 0px 150px;
+    text-align: center;
+    margin: 0px 20px 0px 20px;
 }
 .detail div{
     text-align: center;
 }
 
-
-@media (max-width: 988px){
-    .details{
-        margin: 3%;
-        }
-    .detail{
-       margin: 3%;
-    }
-    .detail p{
-        margin: 0px 50px 0px 50px;
+@media (min-width: 480px) {
+    .fotos{
+        max-width:700px;
     }
     .fotos img{
-        max-width: 550px;
+        max-width: 100%;
     }
-	}
+    }

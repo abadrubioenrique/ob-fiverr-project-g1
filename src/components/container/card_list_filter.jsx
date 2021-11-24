@@ -19,6 +19,7 @@ const CardListFilter = () => {
       .then(response=>{
         setProjects(response.data);
         setTablaProjects(response.data);
+        setLoading(false);
       }).catch(error=>{
         console.log(error);
       })
@@ -26,7 +27,7 @@ const CardListFilter = () => {
 
   /**
    * OnChange
-   * @param {*} e 
+   * @param {event} e 
    */
   const handleChange=e=>{
     setBusqueda(e.target.value);
@@ -35,7 +36,7 @@ const CardListFilter = () => {
 
   /**
    * Filtrar datos
-   * @param {*} searchTerm 
+   * @param {string} searchTerm 
    */
   const filterData=(searchTerm)=>{
   var searchResults=tablaProjects.filter((element)=>{
@@ -53,9 +54,6 @@ const CardListFilter = () => {
    * UseEffect único
    */
   useEffect(()=>{
-    setTimeout(()=>{
-      setLoading(false);
-  },1000);
     peticionGet();
   },[])
 

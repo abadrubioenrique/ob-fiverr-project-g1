@@ -148,7 +148,7 @@ const Carddetailpage = () => {
               </div>
                   <h3>Category: {card.category}</h3>
                   <h3>Price: {card.price}€</h3>
-              <div className="puntuacion">
+              <div>
               {contarStrellas(card.rating)}
               </div>
           </div>
