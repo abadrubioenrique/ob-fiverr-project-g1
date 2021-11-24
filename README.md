@@ -32,7 +32,7 @@ npm install
 
 ## Despliegue 📦
 
-_TODO_
+npm start
 
 ## Construido con 🛠️
 
