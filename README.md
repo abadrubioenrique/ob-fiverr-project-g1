@@ -31,9 +31,9 @@ npm install
 ```
 
 ## Despliegue 📦
-
+```
 npm start
-
+```
 ## Construido con 🛠️
 
 * [React.js](https://reactjs.org) - Librería usada
